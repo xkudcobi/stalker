@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stalker-osint"
+dynamic = ["version"]
+description = "Terminal OSINT toolkit: IP lookup, phone number info and username search (English / Türkçe)."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+dependencies = ["requests>=2.25", "phonenumbers>=8.12"]
+keywords = ["osint", "ip", "phone", "username", "information-gathering"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+    "Natural Language :: English",
+    "Natural Language :: Turkish",
+]
+
+[project.scripts]
+stalker = "stalker.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "stalker.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["stalker*"]
